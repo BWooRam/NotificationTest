@@ -1,5 +1,5 @@
 
-package com.trip.notificationtest
+package com.trip.notificationtest.ui.foreground
 
 import android.app.*
 import android.content.Context
@@ -12,11 +12,14 @@ import android.widget.RemoteViews
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.trip.notificationtest.Config
 import com.trip.notificationtest.Config.isSound
 import com.trip.notificationtest.Config.notificationID
+import com.trip.notificationtest.ui.main.MainActivity
+import com.trip.notificationtest.R
 
 
-class ForegroundTestService2 : Service() {
+class ForegroundTestService : Service() {
     companion object {
         const val CHANNEL_ID = "foreground_service_channel"
         const val NONE_CHANNEL_ID = "none_service_channel"
@@ -57,7 +60,7 @@ class ForegroundTestService2 : Service() {
             this,
             0,
             notificationIntent,
-            PendingIntent.FLAG_CANCEL_CURRENT
+            PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
         val remoteViews = RemoteViews(packageName, R.layout.notification)
         

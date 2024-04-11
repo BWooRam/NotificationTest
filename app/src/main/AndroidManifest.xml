@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity android:name=".ui.notification.NotificationTestActivity"
             android:launchMode="singleInstance"
             android:exported="true">
             <intent-filter>
@@ -22,14 +22,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ForegroundServiceActivity"
+        <activity android:name=".ui.foreground.ForegroundServiceActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".BindServiceActivity"
+        <activity android:name=".ui.bind.BindServiceActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,16 +40,16 @@
             android:enabled="true"
             android:exported="true"/>
 
-        <service android:name=".ForegroundTestService"
+        <service android:name=".ui.foreground.ForegroundTestService"
             android:foregroundServiceType="location"
             android:enabled="true"
             android:exported="true"/>
 
-        <service android:name=".ForegroundTestService2"
+        <service android:name=".ui.foreground.ForegroundTestService2"
             android:enabled="true"
             android:exported="true"/>
 
-        <service android:name=".BindTestService"
+        <service android:name=".ui.bind.BindTestService"
             android:enabled="true"
             android:exported="true"/>
 

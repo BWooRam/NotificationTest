@@ -1,15 +1,17 @@
-package com.trip.notificationtest
+package com.trip.notificationtest.ui.main
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
+import com.trip.notificationtest.Config
+import com.trip.notificationtest.NotiService
+import com.trip.notificationtest.R
 
 
 class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickListener {

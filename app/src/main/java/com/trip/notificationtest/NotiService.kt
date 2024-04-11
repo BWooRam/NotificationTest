@@ -14,6 +14,7 @@ import android.widget.RemoteViews
 import androidx.annotation.RequiresApi
 import com.trip.notificationtest.Config.isSound
 import com.trip.notificationtest.Config.notificationID
+import com.trip.notificationtest.ui.main.MainActivity
 
 
 class NotiService : Service() {
@@ -48,7 +49,7 @@ class NotiService : Service() {
             this,
             0,
             notificationIntent,
-            PendingIntent.FLAG_CANCEL_CURRENT
+            PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
         val remoteViews = RemoteViews(packageName, R.layout.notification)
 

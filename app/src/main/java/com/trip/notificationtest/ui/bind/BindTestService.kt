@@ -1,4 +1,4 @@
-package com.trip.notificationtest
+package com.trip.notificationtest.ui.bind
 
 import android.app.*
 import android.content.Context
@@ -13,6 +13,8 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.trip.notificationtest.Config.isSound
 import com.trip.notificationtest.Config.notificationID
+import com.trip.notificationtest.ui.main.MainActivity
+import com.trip.notificationtest.R
 import java.util.*
 
 
@@ -72,7 +74,7 @@ class BindTestService : Service() {
             this,
             0,
             notificationIntent,
-            PendingIntent.FLAG_CANCEL_CURRENT
+            PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
         val remoteViews = RemoteViews(packageName, R.layout.notification)
 

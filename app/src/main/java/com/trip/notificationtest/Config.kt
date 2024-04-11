@@ -9,6 +9,7 @@ import android.widget.RemoteViews
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.trip.notificationtest.ui.main.MainActivity
 
 object Config {
     var isSound = false

@@ -1,4 +1,4 @@
-package com.trip.notificationtest
+package com.trip.notificationtest.ui.foreground
 
 import android.content.Intent
 import android.os.Build
@@ -9,6 +9,8 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.app.NotificationManagerCompat
+import com.trip.notificationtest.Config
+import com.trip.notificationtest.R
 
 
 /**
