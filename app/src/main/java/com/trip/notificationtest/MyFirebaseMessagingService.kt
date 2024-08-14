@@ -1,6 +1,7 @@
 package com.trip.notificationtest
 
 import android.content.Context
+import android.content.Intent
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
@@ -11,6 +12,9 @@ import android.util.Log
 import androidx.annotation.RawRes
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.trip.notificationtest.localize.LanguageManager
+import com.trip.notificationtest.manager.PushNotificationManagerImp
+import com.trip.notificationtest.ui.main.MainActivity
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
     private var fileId: String? = null
@@ -19,10 +23,24 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         // TODO(developer): Handle FCM messages here.
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
-        /*Log.d(javaClass.simpleName, "From: ${remoteMessage.from}")
+        Log.d(javaClass.simpleName, "From: ${remoteMessage.from}")
+        Log.d(javaClass.simpleName, "Data: ${remoteMessage.data}")
+
+        val pushNotificationManager = PushNotificationManagerImp(this@MyFirebaseMessagingService)
+        val languageManager = LanguageManager()
+
+        val (title:String, body:String) = when(languageManager.getLanguage()){
+            LanguageManager.Language.Japan -> Pair(remoteMessage.data["jp-title"] ?: "", remoteMessage.data["jp-body"] ?: "")
+            LanguageManager.Language.Korea -> Pair(remoteMessage.data["kr-title"] ?: "", remoteMessage.data["kr-body"] ?: "")
+            LanguageManager.Language.English -> Pair(remoteMessage.data["en-title"] ?: "", remoteMessage.data["en-body"] ?: "")
+            LanguageManager.Language.Etc -> Pair(remoteMessage.data["en-title"] ?: "", remoteMessage.data["en-body"] ?: "")
+        }
+
+        pushNotificationManager.createNotificationChannel(PushNotificationManagerImp.Channel())
+        pushNotificationManager.sendNotification(PushNotificationManagerImp.Notification(title = title, message = body))
 
         // Check if message contains a data payload.
-        if (remoteMessage.data.isNotEmpty()) {
+        /*if (remoteMessage.data.isNotEmpty()) {
             Log.d(javaClass.simpleName, "Message data payload: ${remoteMessage.data}")
 
             val builder = Config.createNotificationBuilder(this)
@@ -36,9 +54,10 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             Log.d(javaClass.simpleName, "Message Notification Body: ${it.body}")
         }*/
 
-        initRingTone()
-        stopRing()
-        startRing()
+
+//        initRingTone()
+//        stopRing()
+//        startRing()
 
 /*        val random = Random.nextInt(0, 2)
         fileId = when (random) {
@@ -49,6 +68,10 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         startMediaPlayer()
         initMediaPlayer(R.raw.emer_enable_ok)
         initMediaPlayer(R.raw.emer_disable_ok)*/
+        Log.d(javaClass.simpleName, "MyFirebaseMessagingService onMessageReceived Start")
+        startActivity(Intent(applicationContext, MainActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        })
     }
 
     companion object {

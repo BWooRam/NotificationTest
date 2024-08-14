@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NotificationTest</string>
+    <string name="push_test">VI</string>
+    <string name="push_arg_test">VI %1$s</string>
+</resources>

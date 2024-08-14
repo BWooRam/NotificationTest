@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">NotificationTest</string>
+    <string name="push_test">EN</string>
+    <string name="push_arg_test">EN %1$s</string>
 </resources>

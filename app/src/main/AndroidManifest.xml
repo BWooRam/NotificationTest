@@ -12,13 +12,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.notification.NotificationTestActivity"
-            android:launchMode="singleInstance"
+        <meta-data
+            android:name="test_client_secret"
+            android:value="${TEST_CLIENT_SECRET}"
+            />
+
+
+        <meta-data
+            android:name="test_client_id"
+            android:value="${TEST_CLIENT_ID}"
+            />
+
+        <activity android:name=".ui.main.MainActivity"
+            android:launchMode="singleTop"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.notification.NotificationTestActivity"
+            android:launchMode="singleTop"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="FCM_EXE_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 

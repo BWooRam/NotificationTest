@@ -238,7 +238,7 @@ class PushNotificationManagerImp(
         val id: String = NOTI_CHANNER_ID_DEFAULT,
         val name: String = NOTI_CHANNER_ID_DEFAULT,
         val importance: Int? = null,
-        val sound: Sound?,
+        val sound: Sound? = null,
         val isShowBadge: Boolean = false
     ) : NotificationManager.Channel
 
