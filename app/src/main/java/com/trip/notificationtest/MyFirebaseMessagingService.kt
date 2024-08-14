@@ -23,6 +23,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         // TODO(developer): Handle FCM messages here.
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
+
+        //서버에서 로컬라이징 관련 Data 내부 Notification Json로 구성
         Log.d(javaClass.simpleName, "From: ${remoteMessage.from}")
         Log.d(javaClass.simpleName, "Data: ${remoteMessage.data}")
 
